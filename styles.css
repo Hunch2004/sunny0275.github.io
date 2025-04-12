@@ -1,0 +1,502 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #00b4db, #0083b0);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+#city-input {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#search-btn {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 10px;
+    background: #0083b0;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#search-btn:hover {
+    background: #006b8f;
+}
+
+.weather-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.weather-info {
+    flex: 1;
+}
+
+#city-name {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.temperature {
+    font-size: 48px;
+    font-weight: bold;
+    color: #0083b0;
+    margin-bottom: 15px;
+}
+
+.weather-details {
+    display: flex;
+    gap: 20px;
+}
+
+.detail {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #666;
+}
+
+.weather-icon {
+    text-align: center;
+}
+
+.weather-description {
+    font-size: 18px;
+    color: #333;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+/* Update existing weather icon styles */
+.weather-icon i {
+    font-size: 80px;
+    transition: color 0.3s ease;
+}
+
+.forecast-container {
+    margin-top: 20px;
+}
+
+.forecast-container h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.forecast {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+}
+
+.forecast-item {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.forecast-item .day {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.forecast-item .temp {
+    color: #0083b0;
+    font-weight: bold;
+}
+
+.current-time {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.hourly-forecast {
+    margin: 30px 0;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.hourly-forecast h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.hourly-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 10px 0;
+    scrollbar-width: thin;
+    scrollbar-color: #0083b0 transparent;
+}
+
+.hourly-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.hourly-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.hourly-scroll::-webkit-scrollbar-thumb {
+    background-color: #0083b0;
+    border-radius: 6px;
+}
+
+.hourly-item {
+    min-width: 80px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.hourly-item .time {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.hourly-item .hourly-temp {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0083b0;
+    margin: 5px 0;
+}
+
+.hourly-item .precipitation {
+    font-size: 12px;
+    color: #666;
+}
+
+.forecast-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.forecast-item .precipitation {
+    font-size: 12px;
+    color: #666;
+}
+
+/* Update existing forecast items to include more details */
+.forecast-item i {
+    font-size: 24px;
+    color: #0083b0;
+    margin: 10px 0;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+    
+    .weather-box {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .weather-icon {
+        margin-top: 20px;
+    }
+    
+    .weather-details {
+        justify-content: center;
+    }
+}
+
+.notification {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    animation: slideIn 0.3s ease-out;
+}
+
+#error-message {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Add these styles for the error message */
+.error-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #ff3333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-weight: 500;
+    z-index: 1000;
+    display: none;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Loading overlay styles */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    backdrop-filter: blur(5px);
+}
+
+.loading-content {
+    text-align: center;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #0083b0;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px auto;
+}
+
+.loading-text {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Optional: Add fade animation */
+.loading-overlay.show {
+    display: flex;
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.suggestions-box {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 56px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+    margin-top: 5px;
+}
+
+.suggestion-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.suggestion-item:hover {
+    background-color: #f5f5f5;
+}
+
+.suggestion-city {
+    font-weight: 500;
+    color: #333;
+}
+
+.suggestion-country {
+    color: #666;
+    font-size: 0.9em;
+    text-align: right;
+}
+
+/* Add loading indicator for suggestions */
+.suggestions-loading {
+    padding: 15px;
+    text-align: center;
+    color: #666;
+}
+
+/* Scrollbar styling for suggestions */
+.suggestions-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.suggestions-box::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.suggestions-box::-webkit-scrollbar-thumb {
+    background: #0083b0;
+    border-radius: 4px;
+}
+
+.suggestions-box::-webkit-scrollbar-thumb:hover {
+    background: #006b8f;
+}
+
+/* Hourly and forecast item icon styles */
+.hourly-item i, .forecast-item i {
+    font-size: 24px;
+    margin: 10px 0;
+    transition: color 0.3s ease;
+}
+
+/* Add hover effect */
+.weather-icon i:hover, .hourly-item i:hover, .forecast-item i:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* Weather background styles */
+.weather-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: opacity 1s ease;
+    z-index: -1;
+}
+
+/* Add overlay to make content more readable */
+.weather-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.4)
+    );
+}
+
+/* Weather condition image in weather box */
+.weather-condition-image {
+    width: 100%;
+    max-width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Update weather icon container styles */
+.weather-icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 0;
+}
+
+#weather-icon {
+    font-size: 64px; /* Make icon bigger since we removed the image */
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.weather-description {
+    font-size: 18px;
+    color: #333;
+    text-transform: capitalize;
+    font-weight: 500;
+} 

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css">
+</head>
+<body>
+    <div id="weather-background" class="weather-background"></div>
+    
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Loading weather data...</div>
+        </div>
+    </div>
+    
+    <div id="error-message" class="error-message"></div>
+    
+    <div class="container">
+        <div class="search-box">
+            <input type="text" id="city-input" placeholder="Enter city name">
+            <button id="search-btn"><i class="fas fa-search"></i></button>
+            <div id="suggestions" class="suggestions-box"></div>
+        </div>
+        
+        <div class="weather-box">
+            <div class="weather-info">
+                <h2 id="city-name">--</h2>
+                <div class="current-time" id="current-time">--:--</div>
+                <div class="temperature">
+                    <span id="temp">--</span>
+                    <span class="unit">°C</span>
+                </div>
+                <div class="weather-details">
+                    <div class="detail">
+                        <i class="fas fa-wind"></i>
+                        <span id="wind">-- km/h</span>
+                    </div>
+                    <div class="detail">
+                        <i class="fas fa-tint"></i>
+                        <span id="humidity">--%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="weather-icon">
+                <i id="weather-icon" class="fas fa-cloud"></i>
+            </div>
+        </div>
+
+        <div class="hourly-forecast">
+            <h3>Today's Timeline</h3>
+            <div class="hourly-scroll" id="hourly-forecast">
+            </div>
+        </div>
+        
+        <div class="forecast-container">
+            <h3>5-Day Forecast</h3>
+            <div id="forecast" class="forecast">
+            </div>
+        </div>
+    </div>
+
+    <div id="debug-info" style="display: none; margin-top: 20px; padding: 10px; background: #f0f0f0;">
+        <pre id="debug-output"></pre>
+    </div>
+
+    <script src="script.js" defer></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM fully loaded');
+            // Check if script.js is loaded
+            if (typeof handleSearch === 'function') {
+                console.log('script.js loaded successfully');
+                // Try to load default city
+                handleSearch('Hong Kong');
+            } else {
+                console.error('script.js not loaded properly');
+                document.getElementById('error-message').style.display = 'block';
+                document.getElementById('error-message').textContent = 'Error: Weather app not initialized properly';
+            }
+        });
+    </script>
+
+</body>
+</html> 
