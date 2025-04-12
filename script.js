@@ -1,5 +1,5 @@
 const API_KEY = '599c9dce740184ee10af63f598e417db';
-const BASE_URL = 'https://api.openweathermap.org/data/2.5';
+const BASE_URL = 'https://pro.openweathermap.org/data/2.5';
 const HOURLY_ITEMS_TO_SHOW = 24; // Show 24 hours of forecast
 
 // Debug logs
@@ -117,109 +117,109 @@ const weatherConditions = {
     // Clear sky
     '01d': {
         icon: { icon: 'fa-sun', color: '#FFB300' },
-        image: 'https://images.unsplash.com/photo-1598717123623-994ab270a041?w=800',
-        bgImage: 'https://images.unsplash.com/photo-1598717123623-994ab270a041?w=1920'
+        image: './images/clear-day.jpg',
+        bgImage: './images/clear-day.jpg'
     },
     '01n': {
         icon: { icon: 'fa-moon-stars', color: '#555' },
-        image: 'https://images.unsplash.com/photo-1532978379970-2c726d4b4432?w=800',
-        bgImage: 'https://images.unsplash.com/photo-1532978379970-2c726d4b4432?w=1920'
+        image: './images/clear-night.jpg',
+        bgImage: './images/clear-night.jpg'
     },
     
     // Few clouds
     '02d': {
         icon: { icon: 'fa-cloud-sun', color: '#FFB300' },
-        image: 'https://images.unsplash.com/photo-1517685352821-92cf88aee5a5?w=800',
-        bgImage: 'https://images.unsplash.com/photo-1517685352821-92cf88aee5a5?w=1920'
+        image: './images/few-clouds-day.jpg',
+        bgImage: './images/few-clouds-day.jpg'
     },
     '02n': {
         icon: { icon: 'fa-cloud-moon', color: '#555' },
-        image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800',
-        bgImage: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=1920'
+        image: './images/few-clouds-night.jpg',
+        bgImage: './images/few-clouds-night.jpg'
     },
     
     // Scattered clouds
     '03d': {
         icon: { icon: 'fa-cloud-sun', color: '#7F8C8D' },
-        image: 'https://images.unsplash.com/photo-1525490829609-d166ddb58678?w=800',
-        bgImage: 'https://images.unsplash.com/photo-1525490829609-d166ddb58678?w=1920'
+        image: './images/scattered-day.jpg',
+        bgImage: './images/scattered-day.jpg'
     },
     '03n': {
         icon: { icon: 'fa-cloud-moon', color: '#7F8C8D' },
-        image: 'https://images.unsplash.com/photo-1534088568595-a066f410bcda?w=800',
-        bgImage: 'https://images.unsplash.com/photo-1534088568595-a066f410bcda?w=1920'
+        image: './images/scattered-night.jpg',
+        bgImage: './images/scattered-night.jpg'
     },
     
     // Broken clouds
     '04d': {
         icon: { icon: 'fa-clouds', color: '#7F8C8D' },
-        image: 'https://images.unsplash.com/photo-1483977399921-6cf94f6fdc3a?w=800',
-        bgImage: 'https://images.unsplash.com/photo-1483977399921-6cf94f6fdc3a?w=1920'
+        image: './images/broken-day.jpg',
+        bgImage: './images/broken-day.jpg'
     },
     '04n': {
         icon: { icon: 'fa-clouds-moon', color: '#7F8C8D' },
-        image: 'https://images.unsplash.com/photo-1492011221367-f47e3ccd77a0?w=800',
-        bgImage: 'https://images.unsplash.com/photo-1492011221367-f47e3ccd77a0?w=1920'
+        image: './images/broken-night.jpg',
+        bgImage: './images/broken-night.jpg'
     },
     
     // Shower rain
     '09d': {
         icon: { icon: 'fa-cloud-showers-heavy', color: '#3498DB' },
-        image: 'https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?w=800',
-        bgImage: 'https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?w=1920'
+        image: './images/shower-day.jpg',
+        bgImage: './images/shower-day.jpg'
     },
     '09n': {
         icon: { icon: 'fa-cloud-moon-rain', color: '#3498DB' },
-        image: 'https://images.unsplash.com/photo-1519692933481-e162a57d6721?w=800',
-        bgImage: 'https://images.unsplash.com/photo-1519692933481-e162a57d6721?w=1920'
+        image: './images/shower-night.jpg',
+        bgImage: './images/shower-night.jpg'
     },
     
     // Rain
     '10d': {
         icon: { icon: 'fa-cloud-sun-rain', color: '#3498DB' },
-        image: 'https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?w=800',
-        bgImage: 'https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?w=1920'
+        image: './images/rain-day.jpg',
+        bgImage: './images/rain-day.jpg'
     },
     '10n': {
         icon: { icon: 'fa-cloud-moon-rain', color: '#3498DB' },
-        image: 'https://images.unsplash.com/photo-1501999635878-71cb5379c2d8?w=800',
-        bgImage: 'https://images.unsplash.com/photo-1501999635878-71cb5379c2d8?w=1920'
+        image: './images/rain-night.jpg',
+        bgImage: './images/rain-night.jpg'
     },
     
     // Thunderstorm
     '11d': {
         icon: { icon: 'fa-cloud-bolt', color: '#F1C40F' },
-        image: 'https://images.unsplash.com/photo-1605727216801-e27ce1d0cc28?w=800',
-        bgImage: 'https://images.unsplash.com/photo-1605727216801-e27ce1d0cc28?w=1920'
+        image: './images/thunder-day.jpg',
+        bgImage: './images/thunder-day.jpg'
     },
     '11n': {
         icon: { icon: 'fa-cloud-bolt-moon', color: '#F1C40F' },
-        image: 'https://images.unsplash.com/photo-1472145246862-b24cf25c4a36?w=800',
-        bgImage: 'https://images.unsplash.com/photo-1472145246862-b24cf25c4a36?w=1920'
+        image: './images/thunder-night.jpg',
+        bgImage: './images/thunder-night.jpg'
     },
     
     // Snow
     '13d': {
         icon: { icon: 'fa-cloud-snow', color: '#BDC3C7' },
-        image: 'https://images.unsplash.com/photo-1478265409131-1f65c88f965c?w=800',
-        bgImage: 'https://images.unsplash.com/photo-1478265409131-1f65c88f965c?w=1920'
+        image: './images/snow-day.jpg',
+        bgImage: './images/snow-day.jpg'
     },
     '13n': {
         icon: { icon: 'fa-cloud-moon-snow', color: '#BDC3C7' },
-        image: 'https://images.unsplash.com/photo-1491002052546-bf38f186af56?w=800',
-        bgImage: 'https://images.unsplash.com/photo-1491002052546-bf38f186af56?w=1920'
+        image: './images/snow-night.jpg',
+        bgImage: './images/snow-night.jpg'
     },
     
     // Mist/fog
     '50d': {
         icon: { icon: 'fa-cloud-fog', color: '#95A5A6' },
-        image: 'https://images.unsplash.com/photo-1485236715568-ddc5ee6ca227?w=800',
-        bgImage: 'https://images.unsplash.com/photo-1485236715568-ddc5ee6ca227?w=1920'
+        image: './images/mist-day.jpg',
+        bgImage: './images/mist-day.jpg'
     },
     '50n': {
         icon: { icon: 'fa-cloud-fog-moon', color: '#95A5A6' },
-        image: 'https://images.unsplash.com/photo-1536244636800-a3f74db0f3cf?w=800',
-        bgImage: 'https://images.unsplash.com/photo-1536244636800-a3f74db0f3cf?w=1920'
+        image: './images/mist-night.jpg',
+        bgImage: './images/mist-night.jpg'
     }
 };
 
@@ -237,12 +237,12 @@ const commonCities = {
 async function searchCities(query) {
     try {
         const formattedQuery = query.trim().replace(' ', '%20');
+        // Use pro endpoint for geocoding
         const response = await fetch(
-            `https://api.openweathermap.org/geo/1.0/direct?q=${formattedQuery}&limit=5&appid=${API_KEY}`
+            `https://pro.openweathermap.org/geo/1.0/direct?q=${formattedQuery}&limit=5&appid=${API_KEY}`
         );
         const data = await response.json();
         
-        // Format the results
         return data.map(city => ({
             city: city.name,
             state: city.state,
@@ -390,7 +390,7 @@ function showNotification(message) {
 async function fetchWeather(city) {
     try {
         const formattedCity = city.replace(' ', '%20');
-        // First get coordinates from current weather
+        // Use pro endpoint for current weather
         const weatherResponse = await fetch(`${BASE_URL}/weather?q=${formattedCity}&units=metric&appid=${API_KEY}`);
         const weatherData = await weatherResponse.json();
         
@@ -398,7 +398,7 @@ async function fetchWeather(city) {
             throw new Error('City not found');
         }
 
-        // Use coordinates to get minute forecast (for precipitation)
+        // Use coordinates to get additional data if needed
         const { lat, lon } = weatherData.coord;
         const oneCallResponse = await fetch(
             `${BASE_URL}/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`
@@ -422,10 +422,10 @@ async function fetchWeather(city) {
 async function fetchForecast(city) {
     try {
         const formattedCity = city.replace(' ', '%20');
+        // Use pro endpoint for forecast
         const response = await fetch(`${BASE_URL}/forecast?q=${formattedCity}&units=metric&appid=${API_KEY}`);
         const data = await response.json();
         
-        // Add a minimum delay of 500ms to prevent flickering for fast responses
         await new Promise(resolve => setTimeout(resolve, 500));
         
         if (data.cod === '404' || data.cod === 404) {
@@ -444,6 +444,40 @@ function updateWeatherUI(data) {
         if (!data || !data.main || !data.weather || !data.wind) {
             throw new Error('Invalid weather data received');
         }
+
+        // Add these debug logs
+        console.log('Weather data received:', data);
+        console.log('Weather icon code:', data.weather[0].icon);
+        
+        // Get weather condition data
+        const iconCode = data.weather[0].icon;
+        const weatherDesc = data.weather[0].description;
+        const condition = weatherConditions[iconCode] || {
+            icon: { icon: 'fa-cloud', color: '#7F8C8D' },
+            bgImage: './images/default-weather.jpg'
+        };
+
+        // Add these debug logs
+        console.log('Selected condition:', condition);
+        console.log('Background image path:', condition.bgImage);
+
+        // Update background with fade effect
+        const bgElement = document.getElementById('weather-background');
+        if (!bgElement) {
+            console.error('Background element not found!');
+            return;
+        }
+
+        // Add this debug log
+        console.log('Current background image:', bgElement.style.backgroundImage);
+        
+        bgElement.style.opacity = '0';
+        setTimeout(() => {
+            bgElement.style.backgroundImage = `url('${condition.bgImage}')`;
+            // Add this debug log
+            console.log('New background image set to:', condition.bgImage);
+            bgElement.style.opacity = '1';
+        }, 500);
 
         // Basic weather info updates
         cityName.textContent = `${data.name}, ${data.sys.country}`;
@@ -465,14 +499,6 @@ function updateWeatherUI(data) {
                 hour12: true 
             });
         
-        // Get weather condition data
-        const iconCode = data.weather[0].icon;
-        const weatherDesc = data.weather[0].description;
-        const condition = weatherConditions[iconCode] || {
-            icon: { icon: 'fa-cloud', color: '#7F8C8D' },
-            bgImage: 'default-weather.jpg'
-        };
-
         // Update weather icon and container - removed the image, keeping only icon and description
         let weatherContainer = document.querySelector('.weather-icon');
         weatherContainer.innerHTML = `
@@ -482,27 +508,25 @@ function updateWeatherUI(data) {
             </div>
         `;
 
-        // Update background with fade effect
-        const bgElement = document.getElementById('weather-background');
-        bgElement.style.opacity = '0';
-        setTimeout(() => {
-            bgElement.style.backgroundImage = `url('${condition.bgImage}')`;
-            bgElement.style.opacity = '1';
-        }, 500);
-
     } catch (error) {
         console.error('Error updating weather UI:', error);
         throw error;
     }
 }
 
-// Helper function to preload images
-function loadImage(src) {
-    return new Promise((resolve, reject) => {
+// Add this function to your code
+function checkImageExists(url) {
+    return new Promise((resolve) => {
         const img = new Image();
-        img.onload = () => resolve(img);
-        img.onerror = () => reject(new Error(`Failed to load image: ${src}`));
-        img.src = src;
+        img.onload = () => {
+            console.log(`Image exists: ${url}`);
+            resolve(true);
+        };
+        img.onerror = () => {
+            console.error(`Image does not exist: ${url}`);
+            resolve(false);
+        };
+        img.src = url;
     });
 }
 
@@ -593,4 +617,22 @@ function showError(message) {
             errorElement.style.display = 'none';
         }
     }, 5000);
+}
+
+// Add function to fetch historical weather data
+async function fetchHistoricalWeather(cityId, type = 'hour') {
+    try {
+        const response = await fetch(
+            `https://history.openweathermap.org/data/2.5/history/city?id=${cityId}&type=${type}&appid=${API_KEY}`
+        );
+        const data = await response.json();
+        
+        if (data.cod === '404' || data.cod === 404) {
+            throw new Error('Historical data not found');
+        }
+        return data;
+    } catch (error) {
+        console.error('Error fetching historical weather:', error);
+        throw error;
+    }
 }
