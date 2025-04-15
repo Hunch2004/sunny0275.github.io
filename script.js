@@ -325,13 +325,36 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Update handleSearch function
+// Analytics tracking functions
+function trackEvent(category, action, label) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', action, {
+            'event_category': category,
+            'event_label': label
+        });
+    }
+}
+
+function trackError(error) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'error', {
+            'event_category': 'error',
+            'event_label': error.message || 'Unknown error',
+            'value': 1
+        });
+    }
+}
+
+// Update handleSearch function to include analytics
 async function handleSearch(cityQuery) {
     const city = cityQuery || cityInput.value.trim();
     if (!city) {
         showError('Please enter a city name');
         return;
     }
+    
+    // Track search event
+    trackEvent('search', 'city_search', city);
     
     document.getElementById('suggestions').style.display = 'none';
     showLoading();
@@ -346,15 +369,22 @@ async function handleSearch(cityQuery) {
         if (capitalCity) {
             const countryCode = weatherData.sys.country;
             showNotification(`Showing weather for ${capitalCity}, ${countryCode}`);
+            // Track capital city selection
+            trackEvent('search', 'capital_city_selected', `${capitalCity}, ${countryCode}`);
         }
         
         updateWeatherUI(weatherData);
         updateForecastUI(forecastData);
         
         localStorage.setItem('lastSuccessfulCity', searchCity);
+        
+        // Track successful weather fetch
+        trackEvent('weather', 'successful_fetch', searchCity);
     } catch (error) {
         const lastSuccessfulCity = localStorage.getItem('lastSuccessfulCity') || 'Hong Kong';
         showError(`City "${city}" not found. Showing weather for ${lastSuccessfulCity}`);
+        // Track error
+        trackError(error);
         handleSearch(lastSuccessfulCity);
     } finally {
         hideLoading();
@@ -378,9 +408,8 @@ function showNotification(message) {
     const notification = document.createElement('div');
     notification.className = 'notification';
     notification.textContent = message;
-    document.querySelector('.container').insertBefore(notification, document.querySelector('.weather-box'));
+    document.querySelector('.container').insertBefore(notification, document.querySelector('.search-box'));
     
-    // Remove notification after 5 seconds
     setTimeout(() => {
         notification.remove();
     }, 5000);
@@ -546,6 +575,11 @@ function updateForecastUI(data) {
             const hourlyItem = document.createElement('div');
             hourlyItem.className = 'hourly-item';
             
+            // Add click event to track user interaction with hourly forecast
+            hourlyItem.addEventListener('click', () => {
+                trackEvent('forecast', 'hourly_click', formatTime(item.dt));
+            });
+            
             const precipProb = item.pop || 0;
             const iconCode = item.weather[0].icon;
             const iconData = weatherIcons[iconCode] || { icon: 'fa-cloud', color: '#7F8C8D' };
@@ -583,6 +617,7 @@ function updateForecastUI(data) {
         });
     } catch (error) {
         console.error('Error updating forecast UI:', error);
+        trackError(error);
         showError(error.message);
     }
 }
@@ -636,3 +671,15 @@ async function fetchHistoricalWeather(cityId, type = 'hour') {
         throw error;
     }
 }
+
+// Track page views
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'page_view', {
+            'page_title': document.title,
+            'page_location': window.location.href
+        });
+    }
+    
+    // ... rest of the existing code ...
+});
